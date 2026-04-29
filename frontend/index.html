@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Timer</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link rel="icon" href="data:,">
+</head>
+<body>
+    <div class="container">
+        <h1><span>Baking Timer</span></h1>
+
+        <!-- Chọn bánh hoặc cài đặt thời gian -->
+        <div class="selection">
+            <h2><span>Select your cake type...</span></h2>
+            <button onclick="selectCake('Cookie', 10)" class="cake-button"><span>Cookie</span></button>
+            <button onclick="selectCake('Cupcake', 20)" class="cake-button"><span>Cupcake</span></button>
+            <button onclick="selectCake('Bread', 40)" class="cake-button"><span>Bread</span></button>
+
+            <h2><span>or custom your cake.</span></h2>
+            <input type="text" id="customCakeName" class="input-field" placeholder="Optional cake name">
+            <input type="number" id="customTime" class="input-field" placeholder="Time (minutes)" min="1">
+            <button onclick="setCustomTime()" class="create-button"><span>Create custom cake</span></button>
+        </div>
+
+        <!-- Hiển thị đồng hồ đếm ngược và hình bánh -->
+        <div class="timer-section">
+            <h2 id="cakeNameDisplay"><span></span></h2>
+            <h2><span>Time to bake!</span></h2>
+            <div id="timerDisplay">00:00</div>
+            <div class="cake-image-container">
+                <img id="cakeImage" src="assets/images/logo.png" alt="Unbaked cake">
+            </div>
+            <button id="startButton" onclick="startTimer()" disabled><span>Start baking</span></button>
+            <button id="pauseButton" onclick="pauseTimer()" style="display:none"><span>Pause</span></button>
+            <button id="resumeButton" onclick="resumeTimer()" style="display:none"><span>Resume</span></button>
+            <button id="cancelButton" onclick="cancelTimer()" style="display:none"><span>Cancel</span></button>
+            <button id="backButton" onclick="backToSelection()" style="display:none"><span>Awesome!!</span></button>
+            </div>
+
+        <!-- Lịch sử nướng bánh -->
+        <div class="history-section">
+            <h2><span>Baking history</span></h2>
+            <button onclick="showHistory()" class="history-button"><span>View</span></button>
+            <div class="history-table-container">
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th><span>Cake name</span></th>
+                            <th><span>Time (minutes)</span></th>
+                            <th><span>Completed date</span></th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyList"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Âm thanh thông báo -->
+    <audio id="notificationSound" src="assets/audios/cookies-are-ready.mp3"></audio>
+
+    <!-- Pop-up thông báo bánh chín -->
+    <div id="cakeDonePopup" class="popup">
+        <div class="popup-content">
+            <h3><span>Congratulations!</span></h3>
+            <p><span>Your cake is done!</span></p>
+            <button onclick="closePopup()" class="popup-close"><span>OK</span></button>
+        </div>
+    </div>
+
+    <script src="assets/scripts/script.js"></script>
+</body>
+</html>
