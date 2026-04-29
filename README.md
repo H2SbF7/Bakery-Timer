@@ -152,7 +152,7 @@ Full SDLC documentation is available in the `docs/` folder:
 
 ## Author
 
-Huỳnh Ngọc Mẫn
+Huỳnh Ngọc Mẫn  
 Building toward a career in AI / ML / Data Science.
 
 [GitHub](https://github.com/H2SbF7) · [LinkedIn](https://www.linkedin.com/in/man-huynh-181627331)
